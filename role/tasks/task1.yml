@@ -1,0 +1,16 @@
+---
+- name: create basedir directory
+  # Make sure docker container is allowed to write.
+  # In theory owner=2 group=2 could also work (as jira runs as UID 2) but this might not work because ansible is not allowed to set this
+  file: path={{playbook_dir}}/test state=directory mode=777
+
+- name: Template something
+  template:
+    src: templates/template.yaml.j2
+    dest: "{{playbook_dir}}/test/result.yaml"
+  tags: 
+  - template 
+    
+- name: Execute a command
+  command: sed -i 's/\(values.*\)/\1\n- {{ additional_plugin }}/' "{{playbook_dir}}/test/result.yaml"
+  when: additional_plugin is defined

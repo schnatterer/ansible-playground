@@ -1,0 +1,8 @@
+values: 
+{% for value in array2 %}
+- {{ value }}{% if loop.last %}-last{% endif %}
+
+{% endfor %}
+
+plugin:  {{ additional_plugin }}
+

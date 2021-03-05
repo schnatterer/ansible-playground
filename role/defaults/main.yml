@@ -1,0 +1,6 @@
+---
+array: [ "an", "array"]
+array2: 
+  - "an"
+  - "array"
+additional_plugin: "a string"
