@@ -14,7 +14,7 @@ Execute locally with ansible installed
 or via Docker (no need to install anything)
 
 ```shell
-docker run --rm -v $(pwd):$(pwd) -w $(pwd) williamyeh/ansible:master-debian8 ./exec-playbook.sh
+docker run --rm -v $(pwd):$(pwd) -w $(pwd) ansible/ansible-runner:1.4.6 ./exec-playbook.sh
 ```
 
 See the results in `test` folder.
